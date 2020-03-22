@@ -1,10 +1,10 @@
 #include <stdio.h>
 #include <math.h> 
-//ÅĞ¶ÏÒ»¸öÊıÊÇ·ñÊÇËØÊı£¬ÊÇÔò·µ»Ø1 
+//åˆ¤æ–­ä¸€ä¸ªæ•°æ˜¯å¦æ˜¯ç´ æ•°ï¼Œæ˜¯åˆ™è¿”å›1 
 int isPrime(int a){
 	int prime = 1;
 	if (a > 2){
-//		ÅĞ¶Ïa¿ª·½ÒÔÏÂµÄÊı 
+//		åˆ¤æ–­aå¼€æ–¹ä»¥ä¸‹çš„æ•° 
 		for(int i = 2; i <= sqrt(a*1.0); i++){
 			if(a%i == 0){
 				prime = 0;
@@ -14,24 +14,24 @@ int isPrime(int a){
 	}
 	return prime;
 }
-//Ñ°ÕÒÊı×éÄÚµÄ·ÇËØÊı£¬ĞŞ¸ÄÆäÖµÎª0 
+//å¯»æ‰¾æ•°ç»„å†…çš„éç´ æ•°ï¼Œä¿®æ”¹å…¶å€¼ä¸º0 
 int arrPrime(int number[], int start, int end, int len){
-//	´Óstart¿ªÊ¼Ñ°ÕÒ 
+//	ä»startå¼€å§‹å¯»æ‰¾ 
 	int check = start;
 	for(int i = 0; i < len; i++,check++){ 
-//		Ñ°ÕÒ±ê¼ÇµÄËØÊı
+//		å¯»æ‰¾æ ‡è®°çš„ç´ æ•°
 		if(number[i] == 1){
 //			printf("found number[%d](%d)\n", i, start+i); 
-//			ÅĞ¶ÏÊÇ·ñÎªËØÊı	
+//			åˆ¤æ–­æ˜¯å¦ä¸ºç´ æ•°	
 			if(isPrime(check) == 1){
 //				printf("%d is a prime\n", check);
 			}else{
 				number[i] = 0; 
 //				printf("%d is not a prime\n", check);
 			}
-//			°ÑcheckµÄ±¶ÊıÈ«²¿±ê¼ÇÎª·ÇËØÊı 
+//			æŠŠcheckçš„å€æ•°å…¨éƒ¨æ ‡è®°ä¸ºéç´ æ•° 
 			int next = i + check;
-//			·ÀÖ¹i=0 
+//			é˜²æ­¢i=0 
 			while(next <= end && check != next){
 				if(number[next] == 1){
 					number[next] = 0;
@@ -48,11 +48,11 @@ int main(){
 	int min, max, nub = 0, sum = 0;
 	scanf("%d %d", &min, &max);
 	int len = max - min + 1, number[len];
-//	ÏÈ±ê¼ÇÈ«²¿ÊÇËØÊı 
+//	å…ˆæ ‡è®°å…¨éƒ¨æ˜¯ç´ æ•° 
 	for(int i = 0; i < len; i++){
 		number[i] = 1;
 	}
-//	¼ì²éÊÇ·ñ³É¹¦½áÊø 
+//	æ£€æŸ¥æ˜¯å¦æˆåŠŸç»“æŸ 
 	if(arrPrime(number, min, max, len) == 1){
 		for(int i = 0; i < len; i++){
 			if(number[i] == 1){

@@ -52,7 +52,7 @@ char *dstr_readword(){
 
 // 最优化代码
 char *dstr_readword(){
- int unit = 1<<15;
+ int unit = 1<<15;//2^15,二进制1向左移15位
  int len = 0,size=unit;
 
  char *str = (char*)malloc(size*(sizeof(char)));

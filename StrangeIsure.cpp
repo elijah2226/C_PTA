@@ -50,3 +50,26 @@ char *dstr_readword(){
  return str;
 } 
 
+// 最优化代码
+char *dstr_readword(){
+ int unit = 1<<15;
+ int len = 0,size=unit;
+
+ char *str = (char*)malloc(size*(sizeof(char)));
+ char c;
+ while(1){
+  if(len==size){
+    size += unit;
+    str = (char*)realloc(str,(size)*sizeof(char));
+   }
+  if( scanf("%c",&c)==EOF || c=='\n' || c=='\t' || c==' '){
+   str[len++] = '\0';
+   break; 
+  }  
+  str[len++] = c; 
+  
+ }
+// cout<<"Bingo"<<endl;
+ return str;
+} 
+
